@@ -1,19 +1,118 @@
 # To-Do List App
 
-A simple command-line task manager written in Python.
+یک برنامه مدیریت وظایف ساده و کارآمد که از طریق خط فرمان (CLI) کار می‌کند.
 
-## Features
-- Add, delete, and view tasks
-- Toggle task status (done / not done)
-- Set priority: low, medium, high
-- Save and load tasks from CSV
+## ✨ ویژگی‌ها
 
-## Files
-- `task.py` — Task data model
-- `todolist.py` — ToDoList logic (add, remove, save, load)
-- `main.py` — CLI menu and entry point
+- ✅ **مشاهده وظایف** - نمایش تمام وظایف با وضعیت و اولویت
+- ➕ **اضافه کردن وظایف** - ایجاد وظیفه جدید با عنوان، توضیحات و اولویت
+- ❌ **حذف وظایف** - حذف وظیفه‌ای از لیست
+- 🔄 **تغییر وضعیت** - علامت‌گذاری وظایف به عنوان انجام‌شده یا نشده
+- 💾 **ذخیره و بارگذاری** - تمام وظایف در فایل CSV ذخیره می‌شود
+- 📊 **سطح اولویت** - سه سطح اولویت: کم، متوسط، زیاد
 
-## How to Run
+## 📁 ساختار پروژه
+
+```
+todo-app/
+├── main.py          # نقطه ورود برنامه و منوی CLI
+├── task.py          # کلاس Task برای نمایندگی هر وظیفه
+├── todolist.py      # کلاس ToDoList برای مدیریت وظایف
+├── README.md        # این فایل
+└── tasks.csv        # فایل ذخیره‌شده وظایف (هنگام اول اجرا ایجاد می‌شود)
+```
+
+## 🏗️ معماری
+
+### `task.py`
+کلاس `Task` که هر وظیفه را نمایندگی می‌کند:
+- `title`: عنوان وظیفه
+- `description`: توضیحات تفصیلی
+- `priority`: سطح اولویت (low, medium, high)
+- `is_done`: وضعیت تکمیل
+
+### `todolist.py`
+کلاس `ToDoList` که تمام وظایف را مدیریت می‌کند:
+- `add_task()`: اضافه کردن وظیفه جدید
+- `remove_task()`: حذف وظیفه بر اساس شماره
+- `toggle_task_status()`: تغییر وضعیت وظیفه
+- `show_tasks()`: نمایش تمام وظایف
+- `save_to_csv()`: ذخیره وظایف در فایل CSV
+- `load_from_csv()`: بارگذاری وظایف از فایل CSV
+
+### `main.py`
+رابط خط فرمان (CLI) با منوی تعاملی
+
+## 🚀 نحوه اجرا
+
+### الزامات
+- Python 3.x
+
+### راه‌اندازی
+
 ```bash
+# کلون کردن مخزن
+git clone https://github.com/amirh-ganji/todo-app.git
+cd todo-app
+
+# اجرای برنامه
 python main.py
 ```
+
+## 📖 راهنمای استفاده
+
+پس از اجرا، منوی زیر نمایش داده می‌شود:
+
+```
+--- To-Do List Menu ---
+1. Show tasks           # نمایش تمام وظایف
+2. Add a task           # اضافه کردن وظیفه جدید
+3. Delete Task          # حذف وظیفه
+4. Change task status   # تغییر وضعیت (انجام‌شده/نشده)
+5. Save to file         # ذخیره تمام وظایف
+6. Exit                 # خروج از برنامه
+```
+
+### مثال استفاده
+
+**1. اضافه کردن وظیفه:**
+```
+Your choice: 2
+Task title: خریدن میوه
+Description: میوه تازه از بازار
+Priority (low, medium, high): high
+```
+
+**2. نمایش وظایف:**
+```
+Your choice: 1
+0. [✗] خریدن میوه (high)
+1. [✓] تمام کردن پروژه (medium)
+```
+
+**3. تغییر وضعیت:**
+```
+Your choice: 4
+Task number to change status: 0
+```
+
+## 💾 ذخیره‌سازی
+
+تمام وظایف به صورت خودکار هنگام اجرای گزینه‌های 5 یا 6 در فایل `tasks.csv` ذخیره می‌شود.
+
+**فرمت CSV:**
+```
+title,description,priority,is_done
+عنوان,توضیحات,اولویت,انجام‌شده
+```
+
+## 🔧 نکات فنی
+
+- استفاده از `csv` برای ذخیره‌سازی داده‌ها
+- رابط کاربری تعاملی با خط فرمان
+- بررسی محدوده برای جلوگیری از خطاهای شاخص
+- پشتیبانی از متن‌های فارسی (UTF-8)
+
+## 📝 لایسنس
+
+این پروژه برای اهداف آموزشی است.
