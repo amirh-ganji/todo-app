@@ -42,4 +42,4 @@ class ToDoList:
                     task = Task(title, description, priority, is_done)
                     self.tasks.append(task)
         except FileNotFoundError:
-            pass  # اگر فایل نبود، کاری نکن
+            pass  # If the file does not exist, do nothing.
