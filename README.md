@@ -1,118 +1,118 @@
 # To-Do List App
 
-یک برنامه مدیریت وظایف ساده و کارآمد که از طریق خط فرمان (CLI) کار می‌کند.
+A simple and efficient task management program that works through the command line (CLI).
 
-## ✨ ویژگی‌ها
+## ✨ Features
 
-- ✅ **مشاهده وظایف** - نمایش تمام وظایف با وضعیت و اولویت
-- ➕ **اضافه کردن وظایف** - ایجاد وظیفه جدید با عنوان، توضیحات و اولویت
-- ❌ **حذف وظایف** - حذف وظیفه‌ای از لیست
-- 🔄 **تغییر وضعیت** - علامت‌گذاری وظایف به عنوان انجام‌شده یا نشده
-- 💾 **ذخیره و بارگذاری** - تمام وظایف در فایل CSV ذخیره می‌شود
-- 📊 **سطح اولویت** - سه سطح اولویت: کم، متوسط، زیاد
+- ✅ **View Tasks** - Display all tasks with status and priority
+- ➕ **Add Tasks** - Create new tasks with title, description, and priority
+- ❌ **Delete Tasks** - Remove tasks from the list
+- 🔄 **Change Status** - Mark tasks as done or not done
+- 💾 **Save and Load** - All tasks are saved in a CSV file
+- 📊 **Priority Levels** - Three priority levels: low, medium, high
 
-## 📁 ساختار پروژه
+## 📁 Project Structure
 
 ```
 todo-app/
-├── main.py          # نقطه ورود برنامه و منوی CLI
-├── task.py          # کلاس Task برای نمایندگی هر وظیفه
-├── todolist.py      # کلاس ToDoList برای مدیریت وظایف
-├── README.md        # این فایل
-└── tasks.csv        # فایل ذخیره‌شده وظایف (هنگام اول اجرا ایجاد می‌شود)
+├── main.py          # Entry point and CLI menu
+├── task.py          # Task class for representing each task
+├── todolist.py      # ToDoList class for managing tasks
+├── README.md        # This file
+└── tasks.csv        # Saved tasks file (created on first run)
 ```
 
-## 🏗️ معماری
+## 🏗️ Architecture
 
 ### `task.py`
-کلاس `Task` که هر وظیفه را نمایندگی می‌کند:
-- `title`: عنوان وظیفه
-- `description`: توضیحات تفصیلی
-- `priority`: سطح اولویت (low, medium, high)
-- `is_done`: وضعیت تکمیل
+The `Task` class that represents each task:
+- `title`: Task title
+- `description`: Detailed description
+- `priority`: Priority level (low, medium, high)
+- `is_done`: Completion status
 
 ### `todolist.py`
-کلاس `ToDoList` که تمام وظایف را مدیریت می‌کند:
-- `add_task()`: اضافه کردن وظیفه جدید
-- `remove_task()`: حذف وظیفه بر اساس شماره
-- `toggle_task_status()`: تغییر وضعیت وظیفه
-- `show_tasks()`: نمایش تمام وظایف
-- `save_to_csv()`: ذخیره وظایف در فایل CSV
-- `load_from_csv()`: بارگذاری وظایف از فایل CSV
+The `ToDoList` class that manages all tasks:
+- `add_task()`: Add a new task
+- `remove_task()`: Delete a task by number
+- `toggle_task_status()`: Change task status
+- `show_tasks()`: Display all tasks
+- `save_to_csv()`: Save tasks to CSV file
+- `load_from_csv()`: Load tasks from CSV file
 
 ### `main.py`
-رابط خط فرمان (CLI) با منوی تعاملی
+Command-line interface (CLI) with interactive menu
 
-## 🚀 نحوه اجرا
+## 🚀 How to Run
 
-### الزامات
+### Requirements
 - Python 3.x
 
-### راه‌اندازی
+### Setup
 
 ```bash
-# کلون کردن مخزن
+# Clone the repository
 git clone https://github.com/amirh-ganji/todo-app.git
 cd todo-app
 
-# اجرای برنامه
+# Run the program
 python main.py
 ```
 
-## 📖 راهنمای استفاده
+## 📖 Usage Guide
 
-پس از اجرا، منوی زیر نمایش داده می‌شود:
+After running, the following menu will be displayed:
 
 ```
 --- To-Do List Menu ---
-1. Show tasks           # نمایش تمام وظایف
-2. Add a task           # اضافه کردن وظیفه جدید
-3. Delete Task          # حذف وظیفه
-4. Change task status   # تغییر وضعیت (انجام‌شده/نشده)
-5. Save to file         # ذخیره تمام وظایف
-6. Exit                 # خروج از برنامه
+1. Show tasks           # Display all tasks
+2. Add a task           # Add a new task
+3. Delete Task          # Delete a task
+4. Change task status   # Change status (done/not done)
+5. Save to file         # Save all tasks
+6. Exit                 # Exit the program
 ```
 
-### مثال استفاده
+### Usage Examples
 
-**1. اضافه کردن وظیفه:**
+**1. Adding a task:**
 ```
 Your choice: 2
-Task title: خریدن میوه
-Description: میوه تازه از بازار
+Task title: Buy groceries
+Description: Fresh fruits and vegetables from the market
 Priority (low, medium, high): high
 ```
 
-**2. نمایش وظایف:**
+**2. Displaying tasks:**
 ```
 Your choice: 1
-0. [✗] خریدن میوه (high)
-1. [✓] تمام کردن پروژه (medium)
+0. [✗] Buy groceries (high)
+1. [✓] Complete project (medium)
 ```
 
-**3. تغییر وضعیت:**
+**3. Changing status:**
 ```
 Your choice: 4
 Task number to change status: 0
 ```
 
-## 💾 ذخیره‌سازی
+## 💾 Storage
 
-تمام وظایف به صورت خودکار هنگام اجرای گزینه‌های 5 یا 6 در فایل `tasks.csv` ذخیره می‌شود.
+All tasks are automatically saved to the `tasks.csv` file when menu options 5 or 6 are executed.
 
-**فرمت CSV:**
+**CSV Format:**
 ```
 title,description,priority,is_done
-عنوان,توضیحات,اولویت,انجام‌شده
+Task Title,Task Description,Priority Level,Done Status
 ```
 
-## 🔧 نکات فنی
+## 🔧 Technical Notes
 
-- استفاده از `csv` برای ذخیره‌سازی داده‌ها
-- رابط کاربری تعاملی با خط فرمان
-- بررسی محدوده برای جلوگیری از خطاهای شاخص
-- پشتیبانی از متن‌های فارسی (UTF-8)
+- Uses `csv` module for data storage
+- Interactive command-line user interface
+- Range checking to prevent index errors
+- UTF-8 support for international text
 
-## 📝 لایسنس
+## 📝 License
 
-این پروژه برای اهداف آموزشی است.
+This project is for educational purposes.
